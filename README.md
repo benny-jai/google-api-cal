@@ -1,6 +1,6 @@
 # google-api-cal
 node js project to use google api 
-This is created using google api for calenders to add events and update events. APi responses to  current query and also add events to the calender. 
+This is created using google api for calenders to add events and update events. API responses to  current query and also add events to the calender. 
 To run the api create node folder  using node  package manager and copy files to it . Instal dependencies as per package.json file.
 Create account on google and enable google calendar api for your account. this will create credentials .js for you. copy it in to root folder of your node js project. 
 Run command npm server it will start listening on port 8080 or set in env variables.
