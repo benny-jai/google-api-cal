@@ -44,6 +44,18 @@ function find_daily_slots(year, month, day, slot, callback) {
     {
       start: slot[8].start_time,
       end: slot[8].end_time
+    },
+    {
+      start: slot[9].start_time,
+      end: slot[9].end_time
+    },
+    {
+      start: slot[10].start_time,
+      end: slot[10].end_time
+    },
+    {
+      start: slot[11].start_time,
+      end: slot[11].end_time
     }
   ];
   var avl_slots = [{}];
@@ -79,7 +91,7 @@ function find_daily_slots(year, month, day, slot, callback) {
 
         if (
           response.data.calendars["primary"].busy[0] &&
-          response.data.calendars["primary"].busy.length != 9
+          response.data.calendars["primary"].busy.length != 12
         ) {
           // console.log("bsyslots ", response.data.calendars["primary"].busy[0].start);
           var busy_slots = response.data.calendars["primary"].busy.map(
@@ -87,7 +99,7 @@ function find_daily_slots(year, month, day, slot, callback) {
               (word = moment
                 .utc(word.start)
                 .local()
-                .format("hh:mm"))
+                .format("HH:mm"))
           );
           console.log("local busytime", busy_slots);
 
@@ -119,7 +131,7 @@ function find_daily_slots(year, month, day, slot, callback) {
 
           callback(null, avlbl_slots1);
         } else {
-          if (response.data.calendars["primary"].busy.length == 9) {
+          if (response.data.calendars["primary"].busy.length == 12) {
             callback(null, {
               failure: "No Slots available"
             });
